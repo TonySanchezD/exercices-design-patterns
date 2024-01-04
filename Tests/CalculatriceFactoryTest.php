@@ -15,6 +15,6 @@ final class CalculatriceFactoryTest extends TestCase {
         dump($addition->calcul(2, 4));
 
         $soustraction = new SoustractionFactory;
-        dump($soustraction->calcul(2, 4));
+        dump($addition->calcul(2, 4));
     }
 }
