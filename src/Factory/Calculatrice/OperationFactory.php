@@ -4,13 +4,15 @@ namespace App\Factory\Calculatrice;
 
 use App\Factory\Calculatrice\AdditionFactory;
 use App\Factory\Calculatrice\SoustractionFactory;
+use App\Factory\Calculatrice\Interfaces\CalculationInterface;
 
-class OperationFactory 
+
+abstract class OperationFactory 
 {
-    public function choiceFactory(string $operation)
-    {
-        $class = "App\Factory\Calculatrice\\" . $operation . "Factory"::class;
+    abstract public function calculationType(): CalculationInterface;
 
-        return new $class;
+    final public function calcul($n1, $n2)
+    {
+        return $this->calculationType()->calculation($n1, $n2);
     }
 }

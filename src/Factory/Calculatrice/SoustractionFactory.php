@@ -2,16 +2,14 @@
 
 namespace App\Factory\Calculatrice;
 
-use App\Factory\Calculatrice\Interfaces\CalculationInterface;
 use App\Factory\Calculatrice\OperationFactory;
+use App\Factory\Calculatrice\Interfaces\CalculationInterface;
 
-class SoustractionFactory implements CalculationInterface
+
+class SoustractionFactory extends OperationFactory
 {
-    public $value;
-
-    public function calculationType( $n1, $n2)
+    public function calculationType(): CalculationInterface
     {
-        $this->value = $n1 - $n2;
-        return $this;
+        return new SoustractionCalculation();
     }
 }
